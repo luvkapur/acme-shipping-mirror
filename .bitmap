@@ -12,9 +12,16 @@
     "shipping/rate-quote": {
         "name": "shipping/rate-quote",
         "scope": "acme-modular.shipping",
-        "version": "0.0.1",
+        "version": "f252459525a12d3bd521e20c21b45f546074511b",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/rate-quote"
     },
-    "$schema-version": "17.0.0"
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "try-git-sync",
+            "scope": "acme-modular.shipping"
+        },
+        "exported": true
+    }
 }
