@@ -12,9 +12,16 @@
     "shipping/rate-quote": {
         "name": "shipping/rate-quote",
         "scope": "acme-modular.shipping",
-        "version": "0.0.2",
+        "version": "f0e71d571f79504793da1a836cb2563f49a56f48",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/rate-quote"
     },
-    "$schema-version": "17.0.0"
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "phase-b-check",
+            "scope": "acme-modular.shipping"
+        },
+        "exported": true
+    }
 }

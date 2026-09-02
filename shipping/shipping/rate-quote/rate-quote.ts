@@ -3,7 +3,7 @@
  */
 export function rateQuote(weightKg: number, zone: number): number {
   const base = 550; // phase A check
-  const perKg = 120;
+  const perKg = 125; // phase B check
   const zoneFactor = 1 + zone * 0.25;
   return Math.round((base + perKg * weightKg) * zoneFactor);
 }
