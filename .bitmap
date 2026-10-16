@@ -9,12 +9,28 @@
  */
 
 {
+    "shipping/delivery-options": {
+        "name": "shipping/delivery-options",
+        "scope": "acme-modular.shipping",
+        "version": "8a74841e50285fa17f0832078c75c1e02bccb82b",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/delivery-options",
+        "onLanesOnly": true,
+        "isAvailableOnCurrentLane": true
+    },
     "shipping/rate-quote": {
         "name": "shipping/rate-quote",
         "scope": "acme-modular.shipping",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/rate-quote"
     },
-    "$schema-version": "17.0.0"
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "free-express-10-items",
+            "scope": "acme-modular.shipping"
+        },
+        "exported": true
+    }
 }
