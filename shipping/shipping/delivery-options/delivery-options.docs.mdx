@@ -1,0 +1,37 @@
+---
+description: 'Standard, express and next-day delivery, priced from the shipping rate quote.'
+labels: ['react', 'ui', 'shipping', 'delivery', 'checkout']
+---
+
+`deliveryOptionsFor` prices the three ACME delivery services for a parcel: standard is the `rateQuote` for the weight and zone, express is 1.6 times that and next-day 2.4 times, rounded to whole cents. Parcels of 20 kg or more (`FREE_STANDARD_DELIVERY_MIN_KG`) get standard delivery for free; express and next-day keep their price. `DeliveryOptions` renders them as a radio group with a `PriceTag` per option and hands the full option, price included, to `onChange`.
+
+## Pick a delivery service
+
+```tsx
+import { DeliveryOptions } from '@acme-modular/shipping.shipping.delivery-options';
+import type { DeliveryOption } from '@acme-modular/shipping.shipping.delivery-options';
+
+const [delivery, setDelivery] = useState<DeliveryOption>();
+
+<DeliveryOptions weightKg={2 * itemCount} zone={1} value={delivery?.id} onChange={setDelivery} />
+```
+
+## Price without the UI
+
+```ts
+import { deliveryOptionsFor } from '@acme-modular/shipping.shipping.delivery-options';
+
+deliveryOptionsFor(2, 0);
+// [{ id: 'standard', cents: 790, ... }, { id: 'express', cents: 1264, ... }, { id: 'next-day', cents: 1896, ... }]
+
+deliveryOptionsFor(20, 0);
+// [{ id: 'standard', cents: 0, ... }, { id: 'express', cents: 4720, ... }, { id: 'next-day', cents: 7080, ... }]
+```
+
+## Uncontrolled
+
+Leave `value` out and the component tracks the selection itself.
+
+```tsx
+<DeliveryOptions weightKg={6} zone={2} onChange={(option) => track('delivery-picked', option.id)} />
+```
