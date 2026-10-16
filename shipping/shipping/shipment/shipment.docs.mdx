@@ -1,0 +1,32 @@
+---
+labels: ['shipment', 'entity', 'shipping']
+description: 'A parcel on its way to the customer, with its carrier scans.'
+---
+
+`Shipment` links an order to a carrier parcel. Its `status` is always derived from the latest carrier scan, so the tracking page, the order history and the delivered badge never disagree.
+
+## Status
+
+```ts
+import { Shipment } from '@acme-modular/shipping.shipping.shipment';
+
+const shipment = Shipment.from(plainShipment);
+shipment.status;      // 'in-transit'
+shipment.delivered;   // false
+shipment.latestEvent; // { status: 'in-transit', at: '2026-10-15T22:05:00.000Z', location: 'Dallas, TX' }
+```
+
+## Timeline
+
+```ts
+// scans sorted oldest first, whatever order the carrier sent them in
+shipment.timeline.map((event) => `${event.status} at ${event.location}`);
+```
+
+## Demo data
+
+```ts
+import { mockShipments } from '@acme-modular/shipping.shipping.shipment';
+
+const [inTransit, delivered] = mockShipments(); // o-1003 and o-1002
+```

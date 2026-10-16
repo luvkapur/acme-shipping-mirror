@@ -9,12 +9,40 @@
  */
 
 {
+    "shipping/delivery-options": {
+        "name": "shipping/delivery-options",
+        "scope": "acme-modular.shipping",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/delivery-options"
+    },
     "shipping/rate-quote": {
         "name": "shipping/rate-quote",
         "scope": "acme-modular.shipping",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/rate-quote"
+    },
+    "shipping/shipment": {
+        "name": "shipping/shipment",
+        "scope": "acme-modular.shipping",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/shipment"
+    },
+    "shipping/tracking-timeline": {
+        "name": "shipping/tracking-timeline",
+        "scope": "acme-modular.shipping",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/tracking-timeline"
+    },
+    "shipping/use-shipment": {
+        "name": "shipping/use-shipment",
+        "scope": "acme-modular.shipping",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/use-shipment"
     },
     "$schema-version": "17.0.0"
 }

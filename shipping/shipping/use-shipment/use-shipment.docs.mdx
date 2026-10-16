@@ -1,0 +1,39 @@
+---
+description: 'Loads the shipment of an order.'
+labels: ['hook', 'react', 'data', 'shipping']
+---
+
+`useShipment` loads the shipment for an order through the platform HTTP client and returns a `Shipment` in a `FetchState` (`data`, `error`, `loading`, `reload`). `data` is `undefined` when the order has not shipped yet. Without a `client` it reads an in-memory mock of the demo shipments with a short delay, so previews and the demo app run without a backend.
+
+## Track an order
+
+```tsx
+import { useShipment } from '@acme-modular/shipping.shipping.use-shipment';
+import { TrackingTimeline } from '@acme-modular/shipping.shipping.tracking-timeline';
+
+export function OrderTracking({ orderId }: { orderId: string }) {
+  const { data: shipment, loading, error } = useShipment(orderId);
+  if (loading && !shipment) return <Spinner label="Loading tracking" />;
+  if (error) return <Alert tone="negative">{error.message}</Alert>;
+  return shipment ? <TrackingTimeline shipment={shipment} /> : <p>Not shipped yet.</p>;
+}
+```
+
+## A delivered badge
+
+```tsx
+const { data: shipment } = useShipment(order.id);
+{shipment?.delivered && <Badge tone="positive">Delivered</Badge>}
+```
+
+## Point at a real API
+
+Create the client once (outside render) so the hook does not refetch on every render.
+
+```tsx
+import { createHttpClient } from '@acme-modular/platform.utils.http-client';
+
+const api = createHttpClient({ baseUrl: 'https://api.acme.example/v1' });
+
+const { data } = useShipment(orderId, { client: api });
+```
