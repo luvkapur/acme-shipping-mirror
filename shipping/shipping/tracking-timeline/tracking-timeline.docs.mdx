@@ -1,0 +1,33 @@
+---
+description: 'The carrier scans of a shipment as a timeline, latest scan highlighted.'
+labels: ['react', 'ui', 'shipping', 'tracking']
+---
+
+`TrackingTimeline` shows a `Shipment` as an ordered list of carrier scans, oldest first, with the latest scan highlighted and marked `aria-current="step"`. The header shows the carrier, the tracking number, a status badge and the estimated delivery date until the parcel arrives.
+
+## Track an order
+
+```tsx
+import { TrackingTimeline } from '@acme-modular/shipping.shipping.tracking-timeline';
+
+<TrackingTimeline shipment={shipment} />
+```
+
+## With the shipment hook
+
+```tsx
+import { useShipment } from '@acme-modular/shipping.shipping.use-shipment';
+import { TrackingTimeline } from '@acme-modular/shipping.shipping.tracking-timeline';
+
+const { data: shipment, loading } = useShipment(order.id);
+if (loading) return <Spinner label="Loading tracking" />;
+return shipment ? <TrackingTimeline shipment={shipment} /> : <p>Not shipped yet.</p>;
+```
+
+## Demo data
+
+```tsx
+import { mockShipments } from '@acme-modular/shipping.shipping.shipment';
+
+<TrackingTimeline shipment={mockShipments()[0]} />
+```
