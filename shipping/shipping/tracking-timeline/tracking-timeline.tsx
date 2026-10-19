@@ -15,7 +15,7 @@ const statusLabels: Record<ShipmentStatus, string> = {
   'in-transit': 'In transit',
   'out-for-delivery': 'Out for delivery',
   delivered: 'Delivered',
-  exception: 'Delivery exception',
+  exception: 'Delivery issue',
 };
 
 const statusTones: Record<ShipmentStatus, 'neutral' | 'positive' | 'negative' | 'info'> = {

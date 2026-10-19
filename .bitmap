@@ -33,7 +33,7 @@
     "shipping/tracking-timeline": {
         "name": "shipping/tracking-timeline",
         "scope": "acme-modular.shipping",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/tracking-timeline"
     },
