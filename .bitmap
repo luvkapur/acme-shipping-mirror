@@ -12,9 +12,25 @@
     "shipping/rate-quote": {
         "name": "shipping/rate-quote",
         "scope": "acme-modular.shipping",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "shipping/shipping/rate-quote"
     },
-    "$schema-version": "17.0.0"
+    "shipping/tracking-timeline": {
+        "name": "shipping/tracking-timeline",
+        "scope": "acme-modular.shipping",
+        "version": "bc9889e38daf025afc628c2b8eea7768d239d91f",
+        "mainFile": "index.ts",
+        "rootDir": "shipping/shipping/tracking-timeline",
+        "onLanesOnly": true,
+        "isAvailableOnCurrentLane": true
+    },
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "picked-up-by-carrier",
+            "scope": "acme-modular.shipping"
+        },
+        "exported": true
+    }
 }
